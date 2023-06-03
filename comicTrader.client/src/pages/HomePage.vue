@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <h2>This is the Home Page</h2>
+        <h2>Welcome to ComicTrader!</h2>
         <h4 type="button" class="btn btn-outline-dark"
           @click="md5('1' + '032d216e909d641485f9d8cc75fda252b0464923' + 'ae5e47d3a758598e7125c9a11f835a95')"> md5 </h4>
       </div>
