@@ -5,8 +5,10 @@
   <main>
     <router-view />
   </main>
-  <footer class="bg-dark text-light">
-    Made with 💀 by Michael Patience
+  <footer class="bg-dark">
+    <div class="text-warning lighten-30">
+      Made with 💀 by Michael Patience
+    </div>
   </footer>
 </template>
 

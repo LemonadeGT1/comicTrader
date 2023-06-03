@@ -1,11 +1,11 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center selectable" @click="md5('comicTrader')">
-        comicTrader
-      </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2>This is the Home Page</h2>
+        <h4 type="button" class="btn btn-outline-dark"
+          @click="md5('1' + '032d216e909d641485f9d8cc75fda252b0464923' + 'ae5e47d3a758598e7125c9a11f835a95')"> md5 </h4>
+      </div>
     </div>
   </div>
 </template>
