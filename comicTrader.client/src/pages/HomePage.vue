@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-12">
         <h2>Welcome to ComicTrader!</h2>
         <h4 type="button" class="btn btn-outline-dark"
