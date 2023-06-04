@@ -49,8 +49,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.profilePic {
-  border-radius: 50px;
-}
-</style>
+<style lang="scss" scoped></style>

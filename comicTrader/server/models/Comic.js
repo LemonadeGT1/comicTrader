@@ -1,10 +1,14 @@
+import strictTransportSecurity from "helmet/dist/types/middlewares/strict-transport-security/index.js"
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 export const ComicSchema = new Schema(
   {
-    title: { type: String, required: true, minlength: 1, maxLength: 256 },
-    author: { type: String, required: true, minLength: 2, maxLength: 256 }
+    id: { type: Number, required: true },
+    issueNumber: { type: Number, required: true },
+    title: { type: String, required: true },
+    thumbnail: { type: String, required: true },
+    author: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

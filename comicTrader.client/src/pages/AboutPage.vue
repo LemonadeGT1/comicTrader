@@ -1,6 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is the about page</h1>
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-12">
+        <h1>This is the about page</h1>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,3 +17,5 @@ export default {
   }
 }
 </script>
+
+<style></style>

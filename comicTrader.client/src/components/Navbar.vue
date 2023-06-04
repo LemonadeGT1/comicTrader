@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 elevation-5">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navGradient px-3 elevation-5">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img alt="logo" src="../assets/img/ComicTraderLogo_01.png" height="45" />
@@ -43,9 +43,13 @@ a:hover {
 }
 
 .navbar-nav .router-link-exact-active {
-  border-bottom: 2px solid var(--bs-success);
+  border-bottom: 2px solid var(--bs-warning);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.navGradient {
+  background: linear-gradient(180deg, rgb(36, 36, 36) 0%, rgba(1, 2, 3, 1) 50%);
 }
 
 @media screen and (min-width: 768px) {
