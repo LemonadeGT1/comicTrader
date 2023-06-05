@@ -9,12 +9,11 @@
         <div class="col-12">
           <div class=" masonry">
 
-            <div v-for="c in comics" :key="c.id" class="item p-0 my-2">
-              <div class="comicCard"
-                :style="{ 'background-image': 'url(' + c.thumbnail.path + '.' + c.thumbnail.extension + ')' }">
+            <div v-for="c in comics" :key="c.id" class="item p-0 my-3 rounded elevation-3">
+              <div class="comicCard rounded">
 
-                <div class="blur p-1 d-flex flex-column justify-content-between">
-                  <div class="row">
+                <div class="blur p-1 d-flex flex-column justify-content-between rounded">
+                  <div class="row m-1">
                     <div class="col-12">
                       <h6>{{ c.title }}</h6>
                     </div>
@@ -28,6 +27,7 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -122,7 +122,7 @@ export default {
 
   .item {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 </style>
