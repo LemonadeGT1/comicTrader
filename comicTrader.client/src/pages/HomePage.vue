@@ -9,26 +9,16 @@
         <div class="col-12">
           <div class=" masonry">
 
-            <div v-for="c in comics" :key="c.id" class="item p-0 my-3 rounded elevation-3">
-              <div class="comicCard rounded">
-
-                <div class="blur p-1 d-flex flex-column justify-content-between rounded">
-                  <div class="row m-1">
-                    <div class="col-12">
-                      <h6>{{ c.title }}</h6>
-                    </div>
-                    <div class="col-12 ps-1 my-1">
-                      <img :src="c.thumbnail.path + '.' + c.thumbnail.extension" class="img-fluid comicImg pe-1"
-                        :title="c.title" />
-                      <p v-html="c.description"></p>
-                    </div>
-                    <div class="col-12">
-                      <p class="mb-0">Page Count: {{ c.pageCount }}</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+            <div v-for="c in comics" :key="c.id" class="item pb-0 rounded comicCard p-2">
+              <span class="m-1">
+                <h6 v-text="c.title"></h6>
+                <span class="">
+                  <img :src="c.thumbnail.path + '.' + c.thumbnail.extension" class="img-fluid comicImg pe-1"
+                    :title="c.title" />
+                </span>
+                <p v-html="c.description"></p>
+                <p class="pageCount mb-0">Page Count: <span v-text="c.pageCount"></span></p>
+              </span>
             </div>
 
           </div>
@@ -72,7 +62,7 @@ export default {
 <style scoped lang="scss">
 .home {
   display: grid;
-  height: 80vh;
+  // height: 80vh;
   place-content: center;
   text-align: center;
   user-select: none;
@@ -91,28 +81,13 @@ export default {
 }
 
 .comicCard {
-  background-position: center;
-  background-size: cover;
-  // min-height: 20vh;
-  border-radius: 10px;
-}
-
-.blur {
-  // height: 100%;
-  // width: 100%;
-  border-radius: 10px;
-  /* From https://css.glass */
-  background: rgba(255, 248, 196, 0.30);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  // border: 1px solid rgba(255, 248, 196, 1);
+  background-color: #B51717;
+  color: white;
 }
 
 .comicImg {
   width: 50%;
   height: auto;
-  float: left;
 }
 
 .masonry {
@@ -124,5 +99,9 @@ export default {
     width: 100%;
     margin-bottom: 20px;
   }
+}
+
+.pageCount {
+  clear: both;
 }
 </style>
