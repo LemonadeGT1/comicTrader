@@ -1,28 +1,19 @@
 <template>
   <div class="container-fluid">
-    <div class="row mt-2">
-      <div class="col-12">
+    <div class="row my-2">
+      <div class="col-md-6">
         <h2>Welcome to ComicTrader!</h2>
-        <p></p>
       </div>
-      <div class="row m-0">
-        <div class="col-12">
-          <div class=" masonry">
+      <div class="col-md-6 text-end">The place for collecting, and trading comics!</div>
 
-            <div v-for="c in comics" :key="c.id" class="item pb-0 rounded comicCard p-2">
-              <span class="m-1">
-                <h6 v-text="c.title"></h6>
-                <span class="">
-                  <img :src="c.thumbnail.path + '.' + c.thumbnail.extension" class="img-fluid comicImg pe-1"
-                    :title="c.title" />
-                </span>
-                <p v-html="c.description"></p>
-                <p class="pageCount mb-0">Page Count: <span v-text="c.pageCount"></span></p>
-              </span>
-            </div>
+      <div class="container-fluid">
 
+        <div class="masonry">
+          <div v-for="c in comics" :key="c.id" class="item pb-0 rounded comicCard p-2">
+            <ComicCard :comic="c" />
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -60,6 +51,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.masonry {
+  columns: 5 300px;
+  column-gap: 1rem;
+  // max-width: 100%;
+
+  .item {
+    width: 100%;
+    margin-bottom: 15px;
+    break-inside: avoid;
+  }
+}
+
 .home {
   display: grid;
   // height: 80vh;
@@ -78,30 +81,5 @@ export default {
       object-position: center;
     }
   }
-}
-
-.comicCard {
-  background-color: #B51717;
-  color: white;
-}
-
-.comicImg {
-  width: 50%;
-  height: auto;
-}
-
-.masonry {
-  columns: 5 300px;
-  column-gap: 1rem;
-  // max-width: 100%;
-
-  .item {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
-
-.pageCount {
-  clear: both;
 }
 </style>
