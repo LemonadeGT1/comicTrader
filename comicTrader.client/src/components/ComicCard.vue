@@ -6,7 +6,7 @@
         :title="comic.title" />
     </span>
     <p v-html="comic.description"></p>
-    <p class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p>
+    <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p>
   </span>
 </template>
 
