@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row my-2">
       <div class="col-md-6">
-        <h2>Welcome to ComicTrader!</h2>
+        <h2>Welcome<span v-if="account.id">, <span v-text="account.name" class=""></span>,</span> to ComicTrader!</h2>
       </div>
       <div class="col-md-6 text-end">The place for collecting, and trading comics!</div>
 
@@ -26,6 +26,7 @@ import Pop from "../utils/Pop.js";
 import { comicsService } from '../services/ComicsService.js';
 import { AppState } from "../AppState.js";
 
+
 export default {
   setup() {
 
@@ -44,7 +45,8 @@ export default {
     })
 
     return {
-      comics: computed(() => AppState.comics)
+      comics: computed(() => AppState.comics),
+      account: computed(() => AppState.account)
     }
   }
 }
