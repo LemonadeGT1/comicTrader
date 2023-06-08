@@ -9,7 +9,7 @@
       <div class="container-fluid">
 
         <div class="masonry">
-          <div v-for="c in comics" :key="c.id" class="item pb-0 rounded comicCard p-2">
+          <div v-for="c in comics" :key="c.id" class="item py-0 rounded comicCard px-2">
             <ComicCard :comic="c" />
           </div>
         </div>
