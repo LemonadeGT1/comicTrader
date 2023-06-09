@@ -13,7 +13,7 @@ export const api = Axios.create({
 })
 export const marvelApi = Axios.create({
   baseURL: 'https://gateway.marvel.com/v1/public/',
-  timeout: 8000,
+  timeout: 10000,
   params: { ts: ts.toString(), apikey: apikey, hash: hash }
 })
 

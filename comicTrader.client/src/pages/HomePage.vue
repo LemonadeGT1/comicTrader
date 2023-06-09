@@ -10,9 +10,13 @@
       <div class="row justify-content-center mb-0 mx-0">
         <div class="col-6 text-end">
           <p>
+            <button v-if="AppState.offset >= 10000" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(-10000)">10,000</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">10,000</button>
+
             <button v-if="AppState.offset >= 1000" class="btn btn-success py-0 px-1 mx-1"
-              @click="changePage(-1000)">1000</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1000</button>
+              @click="changePage(-1000)">1,000</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1,000</button>
 
             <button v-if="AppState.offset >= 100" class="btn btn-success py-0 px-1 mx-1"
               @click="changePage(-100)">100</button>
@@ -26,15 +30,27 @@
         </div>
         <div class="col-6">
           <p>Next &gt;
-            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(20)">20</button>
-            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(100)">100</button>
-            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(1000)">1000</button>
+            <button v-if="AppState.offset < AppState.comicTotal - 20" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(20)">20</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">20</button>
+
+            <button v-if="AppState.offset < AppState.comicTotal - 100" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(100)">100</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">100</button>
+
+            <button v-if="AppState.offset < AppState.comicTotal - 1000" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(1000)">1,000</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1,000</button>
+
+            <button v-if="AppState.offset < AppState.comicTotal - 10000" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(10000)">10,000</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">10,000</button>
           </p>
         </div>
       </div>
       <div class="row justify-content-center pt-0">
         <div class="col-4 text-center">
-          <p>Now viewing {{ AppState.offset }} - {{ AppState.offset + 20 }}</p>
+          <p>Now viewing {{ AppState.offset }} - {{ AppState.offset + 20 }} of {{ AppState.comicTotal }}</p>
         </div>
       </div>
 

@@ -12,5 +12,6 @@ export const AppState = reactive({
 
   // For Pagination
   offset: 0,
-  limit: 20
+  limit: 20,
+  comicTotal: 0
 })

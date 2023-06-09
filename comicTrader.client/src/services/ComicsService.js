@@ -9,6 +9,7 @@ class ComicsService {
       const res = await marvelApi.get('/comics')
       logger.log(res.data)
       AppState.comics = res.data.data.results.map(c => new Comic(c))
+      AppState.comicTotal = res.data.data.total
       logger.log(AppState.comics)
     } catch (err) {
       logger.error('Something went wrong retrieving comics', err)
