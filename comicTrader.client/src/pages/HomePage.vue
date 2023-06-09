@@ -7,12 +7,34 @@
       <div class="col-md-6 text-end">The place for collecting, and trading comics!</div>
 
       <!-- //NOTE Page Navigation -->
-      <div class="row justify-content-center mb-3 mx-0">
+      <div class="row justify-content-center mb-0 mx-0">
         <div class="col-6 text-end">
-          <button v-if="AppState.offset > 0" class="btn btn-success py-0" @click="changePage(-20)">Prev 20</button>
+          <p>
+            <button v-if="AppState.offset >= 1000" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(-1000)">1000</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1000</button>
+
+            <button v-if="AppState.offset >= 100" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(-100)">100</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">100</button>
+
+            <button v-if="AppState.offset >= 20" class="btn btn-success py-0 px-1 mx-1"
+              @click="changePage(-20)">20</button>
+            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">20</button>
+            &lt; Prev
+          </p>
         </div>
         <div class="col-6">
-          <button class="btn btn-success py-0" @click="changePage(20)">Next 20</button>
+          <p>Next &gt;
+            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(20)">20</button>
+            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(100)">100</button>
+            <button class="btn btn-success py-0 px-1 mx-1" @click="changePage(1000)">1000</button>
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center pt-0">
+        <div class="col-4 text-center">
+          <p>Now viewing {{ AppState.offset }} - {{ AppState.offset + 20 }}</p>
         </div>
       </div>
 

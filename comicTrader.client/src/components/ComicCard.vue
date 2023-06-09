@@ -4,12 +4,12 @@
       <h6 v-text="comic.title" class="m-0"></h6>
     </div>
     <div class="text-center">
-      <img :src="comic.thumbnail.path + '.' + comic.thumbnail.extension" class="img-fluid comicImg rounded mb-3"
-        :title="comic.title" data-bs-toggle="modal" data-bs-target="#ViewComicModal" :data-id="comic.id"
-        @click="setActiveComic(comic)" />
+      <img :src="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+        class="img-fluid comicImg rounded mb-3 selectable" title="Click for additional details" data-bs-toggle="modal"
+        data-bs-target="#ViewComicModal" @click="setActiveComic(comic)" />
     </div>
     <p v-if="comic.description?.length > 0" class="" v-html="comic.description?.substring(0, 40) + '\u2026'"></p>
-    <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p>
+    <!-- <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p> -->
   </span>
   <!-- //NOTE If the user is logged in -->
   <div class="row" v-if="account.id">
