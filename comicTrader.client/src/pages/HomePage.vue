@@ -6,6 +6,16 @@
       </div>
       <div class="col-md-6 text-end">The place for collecting, and trading comics!</div>
 
+      <!-- //NOTE Page Navigation -->
+      <div class="row justify-content-center mb-3 mx-0">
+        <div class="col-6 text-end">
+          <button v-if="AppState.offset > 0" class="btn btn-success py-0" @click="changePage(-20)">Prev 20</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-success py-0" @click="changePage(20)">Next 20</button>
+        </div>
+      </div>
+
       <div class="container-fluid">
 
         <div class="masonry">
@@ -45,8 +55,18 @@ export default {
     })
 
     return {
+      AppState: computed(() => AppState),
       comics: computed(() => AppState.comics),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+
+      async changePage(num) {
+        try {
+          await comicsService.changePage(num)
+        } catch (error) {
+          logger.error(error.message)
+          Pop.error(error.message)
+        }
+      }
     }
   }
 }

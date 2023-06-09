@@ -10,6 +10,15 @@
       Made with 💀 by Michael Patience
     </div>
   </footer>
+
+  <Modal id="ViewComicModal">
+    <template #header>
+      {{ AppState?.activeComic.title }}
+    </template>
+    <template #modalBody>
+      <ViewComicDetails />
+    </template>
+  </Modal>
 </template>
 
 <script>
@@ -20,7 +29,7 @@ import Navbar from './components/Navbar.vue'
 export default {
   setup() {
     return {
-      appState: computed(() => AppState)
+      AppState: computed(() => AppState)
     }
   },
   components: { Navbar }

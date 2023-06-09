@@ -4,10 +4,11 @@
       <h6 v-text="comic.title" class="m-0"></h6>
     </div>
     <div class="text-center">
-      <img :src="comic.thumbnail.path + '.' + comic.thumbnail.extension" class="img-fluid comicImg rounded"
-        :title="comic.title" />
+      <img :src="comic.thumbnail.path + '.' + comic.thumbnail.extension" class="img-fluid comicImg rounded mb-3"
+        :title="comic.title" data-bs-toggle="modal" data-bs-target="#ViewComicModal" :data-id="comic.id"
+        @click="setActiveComic(comic)" />
     </div>
-    <p class="pt-3" v-html="comic.description"></p>
+    <p v-if="comic.description?.length > 0" class="" v-html="comic.description?.substring(0, 40) + '\u2026'"></p>
     <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p>
   </span>
   <!-- //NOTE If the user is logged in -->
@@ -47,6 +48,10 @@ export default {
       },
       addToForTrade(comicId) {
         logger.log('addToForTrade: ' + comicId)
+      },
+      setActiveComic(comic) {
+        logger.log('setActiveComic', comic)
+        AppState.activeComic = comic
       }
     };
   },
