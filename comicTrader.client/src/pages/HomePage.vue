@@ -22,17 +22,17 @@
               @click="changePage(-100)">100</button>
             <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">100</button>
 
-            <button v-if="AppState.offset >= 20" class="btn btn-primary py-0 px-1 mx-1"
-              @click="changePage(-20)">20</button>
-            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">20</button>
+            <button v-if="AppState.offset >= AppState.limit" class="btn btn-primary py-0 px-1 mx-1"
+              @click="changePage(-AppState.limit)">{{ AppState.limit }}</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">{{ AppState.limit }}</button>
             &lt; Prev
           </p>
         </div>
         <div class="col-sm-6">
           <p>Next &gt;
-            <button v-if="AppState.offset < AppState.comicTotal - 20" class="btn btn-primary py-0 px-1 mx-1"
-              @click="changePage(20)">20</button>
-            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">20</button>
+            <button v-if="AppState.offset < AppState.comicTotal - AppState.limit" class="btn btn-primary py-0 px-1 mx-1"
+              @click="changePage(AppState.limit)">{{ AppState.limit }}</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">{{ AppState.limit }}</button>
 
             <button v-if="AppState.offset < AppState.comicTotal - 100" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(100)">100</button>
