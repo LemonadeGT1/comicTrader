@@ -7,7 +7,7 @@
   </main>
   <footer class="bg-dark">
     <div class="text-warning lighten-30">
-      Made with 💀 by Michael Patience
+      Made with 💀 by Michael Patience - Data on this site provided by Marvel. © 2014 Marvel.
     </div>
   </footer>
 

@@ -8,22 +8,24 @@
         class="img-fluid comicImg rounded mb-3 selectable" title="Click for additional details" data-bs-toggle="modal"
         data-bs-target="#ViewComicModal" @click="setActiveComic(comic)" />
     </div>
-    <p v-if="comic.description?.length > 0" class="" v-html="comic.description?.substring(0, 40) + '\u2026'"></p>
+    <div v-if="comic.description?.length > 0">
+      <p class="" v-html="comic.description?.substring(0, 40) + '\u2026'"></p>
+      <!-- //NOTE If the user is logged in -->
+      <div class="row" v-if="account.id">
+        <p class="m-0">Add To:</p>
+        <div class="col-12 mb-2 d-flex justify-content-evenly">
+          <button type="button" class="btn btn-primary py-0 px-1 elevation-3" @click="addToWishList(comic.id)">Wish
+            List</button>
+          <button type="button" class="btn btn-primary py-0 px-1 elevation-3"
+            @click="addToCollection(comic.id)">Collection</button>
+          <!-- //NOTE If it is in the users collection -->
+          <button type="button" class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For
+            Trade</button>
+        </div>
+      </div>
+    </div>
     <!-- <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p> -->
   </span>
-  <!-- //NOTE If the user is logged in -->
-  <div class="row" v-if="account.id">
-    <p class="m-0">Add To:</p>
-    <div class="col-12 mb-2 d-flex justify-content-evenly">
-      <button type="button" class="btn btn-success py-0 px-1 elevation-3" @click="addToWishList(comic.id)">Wish
-        List</button>
-      <button type="button" class="btn btn-success py-0 px-1 elevation-3"
-        @click="addToCollection(comic.id)">Collection</button>
-      <!-- //NOTE If it is in the users collection -->
-      <button type="button" class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For
-        Trade</button>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -61,6 +63,9 @@ export default {
 <style>
 .comicCard {
   background-color: #B51717;
+  /* background-image: url('../assets/img/Marvel_M_Logo_001.png');
+  background-repeat: repeat;
+  background-size: cover; */
   color: white;
 }
 
@@ -78,5 +83,9 @@ export default {
   background-color: #000000cc;
   padding: 4px 4px 2px 4px;
   border-radius: 5px;
+}
+
+.innerCard {
+  background-color: #123456;
 }
 </style>

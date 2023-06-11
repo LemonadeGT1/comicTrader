@@ -8,49 +8,49 @@
 
       <!-- //NOTE Page Navigation -->
       <div class="row justify-content-center mb-0 mx-0">
-        <div class="col-6 text-end">
+        <div class="col-sm-6 text-end">
           <p>
-            <button v-if="AppState.offset >= 10000" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset >= 10000" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(-10000)">10,000</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">10,000</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">10,000</button>
 
-            <button v-if="AppState.offset >= 1000" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset >= 1000" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(-1000)">1,000</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1,000</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">1,000</button>
 
-            <button v-if="AppState.offset >= 100" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset >= 100" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(-100)">100</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">100</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">100</button>
 
-            <button v-if="AppState.offset >= 20" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset >= 20" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(-20)">20</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">20</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">20</button>
             &lt; Prev
           </p>
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
           <p>Next &gt;
-            <button v-if="AppState.offset < AppState.comicTotal - 20" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset < AppState.comicTotal - 20" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(20)">20</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">20</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">20</button>
 
-            <button v-if="AppState.offset < AppState.comicTotal - 100" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset < AppState.comicTotal - 100" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(100)">100</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">100</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">100</button>
 
-            <button v-if="AppState.offset < AppState.comicTotal - 1000" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset < AppState.comicTotal - 1000" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(1000)">1,000</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">1,000</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">1,000</button>
 
-            <button v-if="AppState.offset < AppState.comicTotal - 10000" class="btn btn-success py-0 px-1 mx-1"
+            <button v-if="AppState.offset < AppState.comicTotal - 10000" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(10000)">10,000</button>
-            <button v-else class="btn btn-success py-0 px-1 mx-1 disabled">10,000</button>
+            <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">10,000</button>
           </p>
         </div>
       </div>
       <div class="row justify-content-center pt-0">
-        <div class="col-4 text-center">
-          <p>Now viewing {{ AppState.offset }} - {{ AppState.offset + 20 }} of {{ AppState.comicTotal }}</p>
+        <div class="col-md-4 text-center">
+          <p>Now viewing {{ AppState.offset }} - {{ AppState.offset + AppState.limit }} of {{ AppState.comicTotal }}</p>
         </div>
       </div>
 
@@ -112,7 +112,7 @@ export default {
 
 <style scoped lang="scss">
 .masonry {
-  columns: 5 300px;
+  columns: 6 275px;
   column-gap: 1rem;
   // max-width: 100%;
 
@@ -120,6 +120,7 @@ export default {
     width: 100%;
     margin-bottom: 15px;
     break-inside: avoid;
+    border: 1px solid #ffffff;
   }
 }
 
