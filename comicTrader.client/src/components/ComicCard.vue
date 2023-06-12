@@ -67,6 +67,7 @@ export default {
   background-repeat: repeat;
   background-size: cover; */
   color: white;
+  background-image: url('../assets/img/ComicTraderCardBG_001.png');
 }
 
 .comicImg {
