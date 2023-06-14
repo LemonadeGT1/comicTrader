@@ -1,9 +1,17 @@
-export class Account {
+export class Profile {
   constructor(data) {
     this.id = data.id
-    this.email = data.email
     this.name = data.name
     this.picture = data.picture
-    // TODO add additional properties if needed
+    this.coverImg = data.coverImg ? data.coverImg : "https://www.colorhexa.com/008291.png"
+    this.bio = data.bio ? data.bio : "User biography"
+    this.theme = data.theme
+  }
+}
+
+export class Account extends Profile {
+  constructor(data) {
+    super(data)
+    this.email = data.email
   }
 }

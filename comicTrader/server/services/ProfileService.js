@@ -28,6 +28,10 @@ class ProfileService {
       .limit(20)
       .exec()
   }
+
+  async updateProfile() {
+
+  }
 }
 
 export const profileService = new ProfileService()

@@ -5,7 +5,7 @@
   <main>
     <router-view />
   </main>
-  <footer class="bg-dark">
+  <footer class="bg-dark grad">
     <div class="text-warning lighten-30">
       Made with 💀 by Michael Patience - Data on this site provided by Marvel. © 2014 Marvel.
     </div>
@@ -47,5 +47,9 @@ footer {
   display: grid;
   place-content: center;
   height: 32px;
+}
+
+.grad {
+  background: linear-gradient(0deg, rgba(36, 36, 36, .3) 0%, rgba(1, 2, 3, 1) 50%);
 }
 </style>
