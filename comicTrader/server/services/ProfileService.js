@@ -29,8 +29,15 @@ class ProfileService {
       .exec()
   }
 
-  async updateProfile() {
-
+  async updateProfile(user, body) {
+    console.log('updateProfile ', user, body)
+    const originalProfile = await this.getProfileById(user)
+    originalProfile.name = body.name ? body.name : originalProfile.name
+    originalProfile.picture = body.picture ? body.picture : originalProfile.picture
+    originalProfile.coverImg = body.coverImg ? body.coverImg : originalProfile.coverImg
+    originalProfile.bio = body.bio ? body.bio : originalProfile.bio
+    await originalProfile.save()
+    return originalProfile
   }
 }
 

@@ -16,10 +16,10 @@
       <label for="bio" class="form-label">Biography</label>
       <input v-model="editable.bio" type="text" class="form-control" id="bio">
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
       <label for="email" class="form-label">Email</label>
       <input v-model="editable.email" type="text" class="form-control" id="email">
-    </div>
+    </div> -->
     <div class="modal-footer">
       <button type="Submit" class="btn btn-primary" data-bs-dismiss="modal">
         Submit Edits

@@ -5,9 +5,10 @@ import { Profile } from "../models/Account.js"
 
 class ProfilesService {
   async editProfile(profileData) {
-    // logger.log('ProfilesService.editProfile', profileData)
-    const res = await api.put('api/profiles/', profileData)
-    logger.log('editProfile', res.data)
+    profileData.profileId = AppState.account.id
+    logger.log('ProfilesService.editProfile.profileData', profileData)
+    const res = await api.put(`api/profiles/${profileData.profileId}`, profileData)
+    logger.log('ProfilesService.editProfile.res.data', res.data)
     AppState.activeProfile = new Profile(res.data)
   }
 

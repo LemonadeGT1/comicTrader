@@ -7,7 +7,7 @@ export class ProfilesController extends BaseController {
     this.router
       .get('', this.getProfiles)
       .get('/:id', this.getProfile)
-      .put('', this.updateProfile)
+      .put('/:id', this.updateProfile)
   }
 
   async getProfiles(req, res, next) {
@@ -29,8 +29,9 @@ export class ProfilesController extends BaseController {
   }
   async updateProfile(req, res, next) {
     try {
-      let user = req.userInfo
+      let user = req.params.id
       let body = req.body
+      // console.log('ProfilesController - updateProfile', user, body)
       const profile = await profileService.updateProfile(user, body)
       res.send(profile)
     } catch (error) {
