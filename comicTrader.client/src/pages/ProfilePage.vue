@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-12">
-        <section class="d-flex justify-content-start banner-size rounded"
+        <section class="d-flex justify-content-start banner-size rounded coverImg"
           :style="{ 'background-image': 'url(' + profile?.coverImg + ')' }">
           <img class="img-relative profile-picture img-fluid" :src="profile?.picture"
             :alt="profile?.name + ' ' + profile?.id">
@@ -16,7 +16,7 @@
       <div class="col-md-8 p-3 bio-background rounded d-flex justify-content-between align-items-end">
         <section>
           <h3 class="pb-3">Name: {{ profile?.name }}</h3>
-          <h6>Biography:</h6>
+          <h5>Biography:</h5>
           <p>{{ profile?.bio }}</p>
         </section>
         <button data-bs-toggle="modal" data-bs-target="#editAccountModal" v-if="profile?.id == account?.id"
@@ -94,6 +94,11 @@ export default {
   border-style: solid;
   border-color: #0e0d0d;
   border-width: 2px;
+}
+
+.coverImg {
+  background-size: cover;
+  background-position: center;
 }
 
 .banner-size {
