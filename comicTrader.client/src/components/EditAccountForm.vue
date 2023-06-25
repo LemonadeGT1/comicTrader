@@ -50,7 +50,7 @@ export default {
       async editProfile() {
         try {
           const profileData = editable.value
-          logger.log('EditAccountForm editProfile', profileData)
+          // logger.log('EditAccountForm editProfile', profileData)
           await profilesService.editProfile(profileData)
         } catch (error) {
           logger.log(error)
