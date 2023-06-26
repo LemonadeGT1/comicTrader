@@ -9,9 +9,9 @@ class CollectionsService {
     try {
       const res = await api.get(`api/collection/${AppState.account.id}`)
       AppState.offset = 0
-      logger.log('CollectionsService getCollection', res.data)
+      // logger.log('CollectionsService getCollection', res.data)
       AppState.collection = res.data.map(c => new Comic(c))
-      logger.log(AppState.collection)
+      // logger.log(AppState.collection)
     } catch (err) {
       logger.error('Something went wrong retrieving collections', err)
     }

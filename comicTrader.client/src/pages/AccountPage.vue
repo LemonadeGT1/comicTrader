@@ -36,7 +36,7 @@ export default {
 
     async function getCollection() {
       try {
-        logger.log('AccountPage: getting collection')
+        // logger.log('AccountPage: getting collection')
         await collectionsService.getCollection()
       } catch (error) {
         logger.log(error.message)
