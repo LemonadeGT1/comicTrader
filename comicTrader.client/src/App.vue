@@ -7,7 +7,8 @@
   </main>
   <footer class="bg-dark grad">
     <div class="text-warning lighten-30">
-      Made with 💀 by Michael Patience - Data on this site provided by Marvel. © 2014 Marvel.
+      Made with 💀 by Michael Patience. Data on this site provided by Marvel. &copy; {{ new Date().getFullYear()
+      }} Marvel.
     </div>
   </footer>
 
