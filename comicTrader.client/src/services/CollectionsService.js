@@ -1,4 +1,5 @@
 import { Collection } from "../models/Collection.js"
+import { Comic } from "../models/Comic.js"
 import { api } from './AxiosService'
 import { logger } from "../utils/Logger.js"
 import { AppState } from "../AppState.js"
@@ -9,7 +10,7 @@ class CollectionsService {
       const res = await api.get(`api/collection/${AppState.account.id}`)
       AppState.offset = 0
       logger.log('CollectionsService getCollection', res.data)
-      AppState.collection = res.data.map(c => new Collection(c))
+      AppState.collection = res.data.map(c => new Comic(c))
       logger.log(AppState.collection)
     } catch (err) {
       logger.error('Something went wrong retrieving collections', err)
