@@ -17,7 +17,7 @@
           <button type="button" class="btn btn-primary py-0 px-1 elevation-3" @click="addToWishList(comic.id)">Wish
             List</button>
           <button type="button" class="btn btn-primary py-0 px-1 elevation-3"
-            @click="addToCollection(comic.id)">Collection</button>
+            @click="addToCollection(comic)">Collection</button>
           <!-- //NOTE If it is in the users collection -->
           <button type="button" class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For
             Trade</button>
@@ -33,6 +33,7 @@ import { computed } from "vue";
 import { Comic } from "../models/Comic.js";
 import { logger } from "../utils/Logger.js";
 import { AppState } from "../AppState.js";
+import { comicsService } from "../services/ComicsService.js";
 
 export default {
   props: {
@@ -45,8 +46,14 @@ export default {
       addToWishList(comicId) {
         logger.log('addToWishList: ' + comicId)
       },
-      addToCollection(comicId) {
-        logger.log('addToCollection: ' + comicId)
+      async addToCollection(comic) {
+        try {
+          logger.log('addToCollection: ' + comic)
+          const res = await comicsService.addToCollection(comic)
+
+        } catch (error) {
+          logger.log(error)
+        }
       },
       addToForTrade(comicId) {
         logger.log('addToForTrade: ' + comicId)

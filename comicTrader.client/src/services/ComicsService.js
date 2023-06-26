@@ -2,6 +2,7 @@ import { Comic } from "../models/Comic.js"
 import { marvelApi } from './AxiosService'
 import { logger } from "../utils/Logger.js"
 import { AppState } from "../AppState.js"
+import { collectionsService } from "./CollectionsService.js"
 
 class ComicsService {
   async getComics() {
@@ -28,6 +29,11 @@ class ComicsService {
     } catch (err) {
       logger.error('Something went wrong retrieving comics', err)
     }
+  }
+
+  async addToCollection(comic) {
+    const collection = await collectionsService.addToCollection(comic)
+    return collection
   }
 }
 

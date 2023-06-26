@@ -11,6 +11,8 @@ export const AppState = reactive({
   comics: [],
   /** @type {import('./models/Comic.js').Comic} */
   activeComic: {},
+  /** @type {import('./models/Collection.js').Collection[]} */
+  collection: [],
 
   // For Pagination
   offset: 0,
