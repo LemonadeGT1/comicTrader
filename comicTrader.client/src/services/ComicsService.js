@@ -7,6 +7,7 @@ class ComicsService {
   async getComics() {
     try {
       const res = await marvelApi.get(`/comics?limit=${AppState.limit}`)
+      AppState.offset = 0
       logger.log(res.data)
       AppState.comics = res.data.data.results.map(c => new Comic(c))
       AppState.comicTotal = res.data.data.total

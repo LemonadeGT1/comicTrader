@@ -8,7 +8,7 @@
 
       <!-- //NOTE Page Navigation -->
       <div class="row justify-content-center mb-0 mx-0">
-        <div class="col-sm-6 text-end">
+        <div class="col-sm-5 text-end">
           <p>
             <button v-if="AppState.offset >= 10000" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(-10000)">10,000</button>
@@ -28,7 +28,11 @@
             &lt; Prev
           </p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-1 text-center">
+          <button v-if="AppState.offset != 0" class="btn btn-primary py-0 px-1 mx-1" @click="getComics()">Start</button>
+          <button v-else class="btn btn-primary py-0 px-1 mx-1 disabled">Start</button>
+        </div>
+        <div class="col-sm-5">
           <p>Next &gt;
             <button v-if="AppState.offset < AppState.comicTotal - AppState.limit" class="btn btn-primary py-0 px-1 mx-1"
               @click="changePage(AppState.limit)">{{ AppState.limit }}</button>
@@ -102,6 +106,17 @@ export default {
           await comicsService.changePage(num)
         } catch (error) {
           logger.error(error.message)
+          Pop.error(error.message)
+        }
+      },
+
+
+      async getComics() {
+        try {
+          logger.log('HomePage: getting comics')
+          await comicsService.getComics()
+        } catch (error) {
+          logger.log(error.message)
           Pop.error(error.message)
         }
       }
