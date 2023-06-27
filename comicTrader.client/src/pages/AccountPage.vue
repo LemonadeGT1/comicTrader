@@ -9,10 +9,16 @@
   <div class="text-center">
 
     <button @click="gotoProfile(account?.id)" class="btn btn-primary py-0 px-1 mx-1">
-      To Profile Page</button>
+      View Profile Page</button>
   </div>
 
+  <!-- //SECTION - Account Collection -->
   <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Your Collection:</h3>
+      </div>
+    </div>
 
     <div class="masonry">
       <div v-for="c in collection" :key="c.id" class="item py-0 rounded comicCard px-2">

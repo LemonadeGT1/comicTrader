@@ -23,6 +23,21 @@
           class="btn btn-primary" title="Edit Profile"><i class="mdi mdi-pencil"></i></button>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Wish List:</h3>
+        <p>(list comics here)</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h3>For Trade:</h3>
+        <p>(list comics here)</p>
+      </div>
+    </div>
+
   </div>
 
   <Modal id="editAccountModal">
