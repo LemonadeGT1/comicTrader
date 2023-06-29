@@ -3,14 +3,14 @@
     <h1>Welcome {{ account.name }}</h1>
     <img class="profilePic" :src="account.picture" alt="" />
     <p class="mt-2">{{ account.email }}</p>
-    <p>Id: {{ account.id }}</p>
+    <!-- <p>Id: {{ account.id }}</p> -->
   </div>
 
-  <div class="text-center">
+  <!-- <div class="text-center">
 
     <button @click="gotoProfile(account?.id)" class="btn btn-primary py-0 px-1 mx-1">
       View Profile Page</button>
-  </div>
+  </div> -->
 
   <!-- //SECTION - Account Collection -->
   <div class="container-fluid mt-4">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="masonry">
-      <div v-for="c in collection" :key="c.id" class="item py-0 rounded comicCard px-2">
+      <div v-for="c in collection" :key="c?.id" class="item py-0 rounded comicCard px-2">
         <ComicCard :comic="c" />
       </div>
     </div>
@@ -69,7 +69,7 @@ export default {
 
 <style scoped lang="scss">
 .masonry {
-  columns: 6 275px;
+  columns: 8 150px;
   column-gap: 1rem;
   // max-width: 100%;
 
@@ -78,10 +78,11 @@ export default {
     margin-bottom: 15px;
     break-inside: avoid;
     border: 1px solid #ffffff;
+    font-size: 12px;
   }
 }
 
 img {
-  max-width: 100px;
+  max-width: 80px;
 }
 </style>

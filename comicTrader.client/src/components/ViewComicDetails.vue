@@ -11,9 +11,9 @@
     </p>
     <p class="pt-3">Creators:
     <table>
-      <tr v-for="c in activeComic.creators.items">
-        <td class="ps-3 text-end">{{ c.role.charAt(0).toUpperCase() + c.role.slice(1) }}</td>
-        <td class="ps-3 text-end">{{ c.name }}</td>
+      <tr v-for="ac in activeComic.creators?.items">
+        <td class="ps-3 text-end">{{ ac.role.charAt(0).toUpperCase() + ac.role.slice(1) }}</td>
+        <td class="ps-3 text-end">{{ ac.name }}</td>
       </tr>
     </table>
     </p>

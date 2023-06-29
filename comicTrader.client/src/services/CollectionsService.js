@@ -11,7 +11,7 @@ class CollectionsService {
       AppState.offset = 0
       // logger.log('CollectionsService getCollection', res.data)
       AppState.collection = res.data.map(c => new Comic(c))
-      // logger.log(AppState.collection)
+      logger.log(AppState.collection)
     } catch (err) {
       logger.error('Something went wrong retrieving collections', err)
     }
