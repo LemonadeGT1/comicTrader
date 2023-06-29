@@ -11,6 +11,17 @@ class CollectionsService {
       AppState.offset = 0
       // logger.log('CollectionsService getCollection', res.data)
       AppState.collection = res.data.map(c => new Comic(c))
+      AppState.collection = AppState.collection.sort((a, b) => {
+        const nameA = a.title.toUpperCase()
+        const nameB = b.title.toUpperCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
+      })
       logger.log(AppState.collection)
     } catch (err) {
       logger.error('Something went wrong retrieving collections', err)
