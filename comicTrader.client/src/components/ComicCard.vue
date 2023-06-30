@@ -18,8 +18,7 @@
 
         <!-- //NOTE If not already on Wish List -->
         <button v-if="this.$route.name != 'Account'" type="button" class="btn btn-primary py-0 px-1 elevation-3"
-          @click="addToWishList(comic.id)">Wish
-          List</button>
+          @click="addToWishList(comic.id)">Wish List</button>
 
         <!-- //NOTE If not on AccountPage -->
         <button v-if="this.$route.name != 'Account'" type="button" class="btn btn-primary py-0 px-1 elevation-3"

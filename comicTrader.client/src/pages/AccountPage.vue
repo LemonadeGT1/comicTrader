@@ -78,7 +78,6 @@ export default {
     margin-bottom: 15px;
     break-inside: avoid;
     border: 1px solid #ffffff;
-    font-size: 12px;
   }
 }
 
