@@ -24,9 +24,9 @@
         <button v-if="this.$route.name != 'Account'" type="button" class="btn btn-primary py-0 px-1 elevation-3"
           @click="addToCollection(comic)">Collection</button>
 
-        <!-- //NOTE If it is in the users collection -->
-        <button type="button" class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For
-          Trade</button>
+        <!-- //NOTE If it is in the users collection, and not already marked For Trade -->
+        <button v-if="this.$route.name != 'Account' && comic.forTrade == false" type="button"
+          class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For Trade</button>
       </div>
     </div>
     <!-- <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p> -->

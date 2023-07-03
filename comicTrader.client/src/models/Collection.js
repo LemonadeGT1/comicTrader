@@ -9,5 +9,6 @@ export class Collection {
     this.dates = data.dates
     this.description = data.description
     this.pageCount = data.pageCount
+    this.forTrade = data.forTrade || false
   }
 }

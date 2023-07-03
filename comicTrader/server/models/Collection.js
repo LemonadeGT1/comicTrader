@@ -11,7 +11,8 @@ export const CollectionSchema = new Schema(
     creators: {},
     dates: {},
     description: {},
-    pageCount: {}
+    pageCount: {},
+    forTrade: { type: Boolean, default: false }
 
   },
   { timestamps: true, toJSON: { virtuals: true } }
