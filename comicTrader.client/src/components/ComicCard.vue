@@ -13,7 +13,7 @@
       <!-- //NOTE If the user is logged in -->
     </div>
     <div class="row" v-if="account.id">
-      <p class="m-0">Add To:</p>
+      <p class="m-0" v-if="this.$route.name != 'Account'">Add To:</p>
       <div class="col-12 mb-2 d-flex justify-content-evenly">
 
         <!-- //NOTE If not already on Wish List -->
@@ -26,9 +26,9 @@
 
         <!-- //NOTE If it is in the users collection, and not already marked For Trade -->
         <button v-if="this.$route.name == 'Account' && comic.forTrade == false" type="button"
-          class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic.id)">For Trade</button>
+          class="btn btn-warning py-0 px-1 elevation-3" @click="addToForTrade(comic)">For Trade</button>
         <button v-if="this.$route.name == 'Account' && comic.forTrade == true" type="button"
-          class="btn btn-primary py-0 px-1 elevation-3" @click="removeFromForTrade(comic.id)">Remove From Trade</button>
+          class="btn btn-primary py-0 px-1 elevation-3" @click="removeFromForTrade(comic)">Remove From Trade</button>
       </div>
     </div>
     <!-- <p v-if="comic.pageCount > 0" class="pageCount mb-0">Page Count: <span v-text="comic.pageCount"></span></p> -->
@@ -41,6 +41,7 @@ import { Comic } from "../models/Comic.js";
 import { logger } from "../utils/Logger.js";
 import { AppState } from "../AppState.js";
 import { comicsService } from "../services/ComicsService.js";
+import { collectionsService } from "../services/CollectionsService.js";
 
 export default {
   props: {
@@ -62,16 +63,19 @@ export default {
           logger.log(error)
         }
       },
-      async addToForTrade(comicId) {
+      async addToForTrade(comic) {
         try {
-          logger.log('addToForTrade: ' + comicId)
-          const res = await comicsService.addToForTrade(comicId)
+          const res = await collectionsService.addToForTrade(comic)
         } catch (error) {
           logger.log(error)
         }
       },
-      removeFromForTrade(comicId) {
-        logger.log('removeFromForTrade: ' + comicId)
+      async removeFromForTrade(comic) {
+        try {
+          const res = await collectionsService.removeFromForTrade(comic)
+        } catch (error) {
+          logger.log(error)
+        }
       },
       setActiveComic(comic) {
         logger.log('setActiveComic', comic)

@@ -54,6 +54,14 @@ class CollectionsService {
       logger.error('Something went wrong retrieving collections', err)
     }
   }
+
+  async addToForTrade(comic) {
+    logger.log('ComicsService addToForTrade ', comic)
+  }
+
+  async removeFromForTrade(comic) {
+    logger.log('ComicsService removeFromForTrade ', comic)
+  }
 }
 
 export const collectionsService = new CollectionsService()

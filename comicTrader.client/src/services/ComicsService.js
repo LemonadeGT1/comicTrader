@@ -35,14 +35,6 @@ class ComicsService {
     const collection = await collectionsService.addToCollection(comic)
     return collection
   }
-
-  async addToForTrade(comicId) {
-    logger.log('ComicsService addToForTrade ', comicId)
-  }
-
-  async removeFromForTrade(comicId) {
-    logger.log('ComicsService removeFromForTrade ', comicId)
-  }
 }
 
 export const comicsService = new ComicsService()
