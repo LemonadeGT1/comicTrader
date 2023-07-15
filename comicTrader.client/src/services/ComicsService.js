@@ -7,7 +7,7 @@ import { collectionsService } from "./CollectionsService.js"
 class ComicsService {
   async getComics() {
     try {
-      const res = await marvelApi.get(`/comics?limit=${AppState.limit}`)
+      const res = await marvelApi.get(`/comics?orderBy=-modified&limit=${AppState.limit}`)
       AppState.offset = 0
       logger.log(res.data)
       AppState.comics = res.data.data.results.map(c => new Comic(c))
@@ -22,7 +22,7 @@ class ComicsService {
     AppState.offset += num
     if (AppState.offset < 0) { AppState.offset = 0 }
     try {
-      const res = await marvelApi.get(`/comics?offset=${AppState.offset}&limit=${AppState.limit}`)
+      const res = await marvelApi.get(`/comics?orderBy=-modified&offset=${AppState.offset}&limit=${AppState.limit}`)
       logger.log(res.data)
       AppState.comics = res.data.data.results.map(c => new Comic(c))
       logger.log(AppState.comics)
