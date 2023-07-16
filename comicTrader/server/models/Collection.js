@@ -12,6 +12,7 @@ export const CollectionSchema = new Schema(
     dates: {},
     description: {},
     pageCount: {},
+    modified: { type: Date },
     forTrade: { type: Boolean, default: false }
 
   },

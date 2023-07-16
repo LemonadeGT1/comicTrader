@@ -9,6 +9,7 @@ export class Comic {
     this.dates = data.dates
     this.description = data.description
     this.pageCount = data.pageCount
+    this.modified = data.modified
     this.forTrade = data.forTrade || false
   }
 }
